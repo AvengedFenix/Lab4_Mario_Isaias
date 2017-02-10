@@ -198,7 +198,7 @@ int cXOR(string palClave, string texto){
 
 	for(int i = 0; i< tamPal; i++){
 		bPal[i] = arrePal[i];
-		cout<<"binario de la palbra " <<bPal[i]<<endl;
+		cout<<"binario de la palabra " <<bPal[i]<<endl;
 	}
 	
 	for(int i = 0; i< tamTex; i++){
