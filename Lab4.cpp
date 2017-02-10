@@ -6,10 +6,9 @@ using namespace std;
 
 
 char* Vigenere();
-int cXOR();
+int cXOR(string, string);
 char* abcdario(); 
 
-int cXOR(string palClave, string texto);
 
 
 int main(){
@@ -33,7 +32,7 @@ int main(){
 				cin>>mensaje;	
 				cout<<p_clave<<endl<<mensaje;
 				int tam_clave=p_clave.length();
-				
+				cXOR(p_clave,mensaje);
       	 
 	
 				break;
@@ -184,28 +183,44 @@ int cXOR(string palClave, string texto){
 	int* arreTex = new int[tamTex];
 	bitset <8> bPal[tamPal];
 	bitset <8> bTex[tamTex];
+	bitset <8> cif[tamTex];
 
 	for(int i =0; i<tamPal; i++){
 		int temp = palClave.at(i);
 		arrePal[i] = temp;
 	}
 
+        for(int i =0; i< tamTex;i++){
+                int temp = texto.at(i);
+                arreTex[i] = temp;
+        }
+
+
 	for(int i = 0; i< tamPal; i++){
 		bPal[i] = arrePal[i];
-		cout<<bPal[i]<<endl;
+		cout<<"binario de la palbra " <<bPal[i]<<endl;
 	}
 	
 	for(int i = 0; i< tamTex; i++){
 		bTex[i] = arreTex[i];
-		cout<<bTex[i]<<endl;
+		cout<<"binario del texto " << bTex[i]<<endl;
 		
 	}
 
-	for(int i =0; i< tamTex;i++){
-		int temp = texto.at(i);
-		arreTex[i] = temp;
+	int a=0;	
+	for(int i = 0; i<tamTex;i++){
+
+		cout<<"cifrado "<<(bPal[i]^bTex[i])<<endl;
+		
+		cif[i]=(bPal[a]^bTex[i]);
+		a++;
+		if(a<=tamPal){
+			a =0;
+		}	
 	}
-	
-	
+
+	for(int i = 0; i<tamTex;i++){
+		cout<<"bits "<<cif[i].to_ulong()<<endl;
+	}
 }
 
