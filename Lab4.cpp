@@ -175,6 +175,8 @@ char* Vigenere(){
 
 
 int cXOR(string palClave, string texto){
+	cout<<"                   CIFRADO XOR"<<endl;
+	cout<<"========================================================"<<endl;
 	int tamPal;
 	tamPal = palClave.length();
 	int tamTex;
