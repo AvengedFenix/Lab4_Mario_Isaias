@@ -1,5 +1,6 @@
 #include <iostream>
-#include<string.h> 
+#include<string.h>
+#include <bitset> 
 
 using namespace std;
 
@@ -46,25 +47,163 @@ int main(){
 	return 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 char* Vigenere(){
 	
 }
 
+
 int cXOR(string palClave, string texto){
 	int tamPal;
-	tamPal = palClave.length;
+	tamPal = palClave.length();
 	int tamTex;
-	tamTex = texto.length;
+	tamTex = texto.length();
 	int* arrePal = new int[tamPal];
 	int* arreTex = new int[tamTex];
+	bitset <8> bPal[tamPal];
+	bitset <8> bTex[tamTex];
+
 	for(int i =0; i<tamPal; i++){
 		int temp = palClave.at(i);
 		arrePal[i] = temp;
 	}
-	for(int i =0; i< tamTex;i++){
-		int temp = palTex.at(i);
-		arreTex[i] = temp;
+
+	for(int i = 0; i< tamPal; i++){
+		bPal[i] = arrePal[i];
+	}
+	
+	for(int i = 0; i< tamTex; i++){
+		bTex[i] = arreTex[i];
+		
 	}
 
+	for(int i =0; i< tamTex;i++){
+		int temp = texto.at(i);
+		arreTex[i] = temp;
+	}
+	
+	
 }
 
