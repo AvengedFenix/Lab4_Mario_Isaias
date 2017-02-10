@@ -1,8 +1,15 @@
 #include <iostream>
+#include<string.h> 
 
 using namespace std;
 
+
+char* Vigenere();
+int cXOR();
+char[] abcdario(); 
+
 int cXOR(string palClave, string texto);
+
 
 int main(){
 	char seguir = 's';
@@ -12,6 +19,8 @@ int main(){
 	        cin>>ej;
 		switch(ej){
 			case 1:{
+				
+				cout<<"Ingrese palabra clave: ";
 				
 				break;
 			}
@@ -147,6 +156,17 @@ int main(){
 
 
 
+=======
+char[] abcdario(){
+	char[27] x={'a','b','c','d','e','f','g','h','i','j',
+					'k','l','m','n','o','p','q','r','s','t',
+					'u','v','w','x','y','z'}
+}
+char* Vigenere(){
+	
+}
+>>>>>>> d66ef89f5e43700d215d47629705869d51e2a7b5
+
 int cXOR(string palClave, string texto){
 	int tamPal;
 	tamPal = palClave.length;
@@ -164,3 +184,4 @@ int cXOR(string palClave, string texto){
 	}
 
 }
+
