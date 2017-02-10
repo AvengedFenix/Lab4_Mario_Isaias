@@ -7,22 +7,35 @@ using namespace std;
 
 char* Vigenere();
 int cXOR();
-char[] abcdario(); 
+char* abcdario(); 
 
 int cXOR(string palClave, string texto);
 
 
 int main(){
-	char seguir = 's';
-	while(resp =='s' || resp == 'S'){
+	char abcd[27]={'a','b','c','d','e','f','g','h','i','j',
+                  'k','l','m','n','o','p','q','r','s','t',
+                  'u','v','w','x','y','z'};
+
+
+	char resp = 's';
+	while(resp=='s' || resp == 'S'){
 		cout<<"1. Cifrar \n2. Decifrar"<<endl;
        		int ej;
 	        cin>>ej;
 		switch(ej){
 			case 1:{
-				
+				string p_clave;
+				string mensaje;				
 				cout<<"Ingrese palabra clave: ";
+				cin>>p_clave;
+				cout<<"Ingrese Mensaje a cifrar: ";
+				cin>>mensaje;	
+				cout<<p_clave<<endl<<mensaje;
+				int tam_clave=p_clave.length();
 				
+      	 
+	
 				break;
 			}
 			case 2:{
@@ -157,16 +170,10 @@ int main(){
 
 
 
-=======
-char[] abcdario(){
-	char[27] x={'a','b','c','d','e','f','g','h','i','j',
-					'k','l','m','n','o','p','q','r','s','t',
-					'u','v','w','x','y','z'}
-}
 char* Vigenere(){
 	
 }
->>>>>>> d66ef89f5e43700d215d47629705869d51e2a7b5
+
 
 int cXOR(string palClave, string texto){
 	int tamPal;
