@@ -185,10 +185,12 @@ int cXOR(string palClave, string texto){
 
 	for(int i = 0; i< tamPal; i++){
 		bPal[i] = arrePal[i];
+		cout<<bPal[i]<<endl;
 	}
 	
 	for(int i = 0; i< tamTex; i++){
 		bTex[i] = arreTex[i];
+		cout<<bTex[i]<<endl;
 		
 	}
 
