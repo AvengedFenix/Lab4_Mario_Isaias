@@ -4,13 +4,18 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 string abcedariofrom(int);
 int abecedario(string);
 string* Vigenere(string,int);
 int cXOR();
+=======
+
+char* Vigenere();
+int cXOR(string, string);
+>>>>>>> 729322d2b12ec24a6eb6096959b8912e0323cd46
 char* abcdario(); 
 
-int cXOR(string palClave, string texto);
 
 
 int main(){
@@ -35,12 +40,17 @@ int main(){
 				cin>>mensaje;	
 				cout<<p_clave<<endl<<mensaje;
 				int tam_clave=p_clave.length();
+<<<<<<< HEAD
 	         cout<<endl;
 				cout<<"-------Cifrado de Vigenere------"<<endl;
 				string* vigenere=NULL;			
       	 	vigenere=Vigenere(p_clave,tam_clave);
 				cout<<"El texto cifrado en Vigenere\n"<<vigenere[0];
 				
+=======
+				cXOR(p_clave,mensaje);
+      	 
+>>>>>>> 729322d2b12ec24a6eb6096959b8912e0323cd46
 	
 				break;
 			}
@@ -298,6 +308,8 @@ string* Vigenere(string cad, int clave){
 
 
 int cXOR(string palClave, string texto){
+	cout<<"                   CIFRADO XOR"<<endl;
+	cout<<"========================================================"<<endl;
 	int tamPal;
 	tamPal = palClave.length();
 	int tamTex;
@@ -306,26 +318,44 @@ int cXOR(string palClave, string texto){
 	int* arreTex = new int[tamTex];
 	bitset <8> bPal[tamPal];
 	bitset <8> bTex[tamTex];
+	bitset <8> cif[tamTex];
 
 	for(int i =0; i<tamPal; i++){
 		int temp = palClave.at(i);
 		arrePal[i] = temp;
 	}
 
+        for(int i =0; i< tamTex;i++){
+                int temp = texto.at(i);
+                arreTex[i] = temp;
+        }
+
+
 	for(int i = 0; i< tamPal; i++){
 		bPal[i] = arrePal[i];
+		cout<<"binario de la palabra " <<bPal[i]<<endl;
 	}
 	
 	for(int i = 0; i< tamTex; i++){
 		bTex[i] = arreTex[i];
+		cout<<"binario del texto " << bTex[i]<<endl;
 		
 	}
 
-	for(int i =0; i< tamTex;i++){
-		int temp = texto.at(i);
-		arreTex[i] = temp;
+	int a=0;	
+	for(int i = 0; i<tamTex;i++){
+
+		cout<<"cifrado "<<(bPal[i]^bTex[i])<<endl;
+		
+		cif[i]=(bPal[a]^bTex[i]);
+		a++;
+		if(a<=tamPal){
+			a =0;
+		}	
 	}
-	
-	
+
+	for(int i = 0; i<tamTex;i++){
+		cout<<"bits "<<cif[i].to_ulong()<<endl;
+	}
 }
 
