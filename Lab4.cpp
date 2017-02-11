@@ -1,22 +1,18 @@
 #include <iostream>
 #include<string.h>
 #include <bitset> 
-
+#include <sstream>
 using namespace std;
 
-<<<<<<< HEAD
+
 string abcedariofrom(int);
 int abecedario(string);
 string* Vigenere(string,int);
 int cXOR();
-=======
-
 char* Vigenere();
 int cXOR(string, string);
->>>>>>> 729322d2b12ec24a6eb6096959b8912e0323cd46
 char* abcdario(); 
-
-
+string cesar(string);
 
 int main(){
 	char abcd[27]={'a','b','c','d','e','f','g','h','i','j',
@@ -27,7 +23,7 @@ int main(){
 	char resp = 's';
 	while(resp=='s' || resp == 'S'){
 		cout<<endl;
-		cout<<"1. Cifrar \n2. Decifrar"<<endl;
+		cout<<"1. Cifrar \n2. Salir"<<endl;
        		int ej;
 	        cin>>ej;
 		switch(ej){
@@ -37,25 +33,28 @@ int main(){
 				cout<<"Ingrese palabra clave: ";
 				cin>>p_clave;
 				cout<<"Ingrese Mensaje a cifrar: ";
-				cin>>mensaje;	
+				cin>>mensaje;
+					
 				cout<<p_clave<<endl<<mensaje;
 				int tam_clave=p_clave.length();
-<<<<<<< HEAD
 	         cout<<endl;
 				cout<<"-------Cifrado de Vigenere------"<<endl;
 				string* vigenere=NULL;			
-      	 	vigenere=Vigenere(p_clave,tam_clave);
-				cout<<"El texto cifrado en Vigenere\n"<<vigenere[0];
+      	 	vigenere=Vigenere(mensaje,tam_clave);
+				string codvig=vigenere[0];
+				cout<<"El texto cifrado en Vigenere\n"<<codvig;
 				
-=======
-				cXOR(p_clave,mensaje);
+				cout<<endl<<"Cifrado de Cesar!\n";	
+				string s=cesar(codvig);
+				cout<<s<<endl;
+				cXOR(p_clave,s);
       	 
->>>>>>> 729322d2b12ec24a6eb6096959b8912e0323cd46
+
 	
 				break;
 			}
-			case 2:{
-				
+			default:{
+				resp='n';
 				break;
 			}
 		}
@@ -63,6 +62,39 @@ int main(){
 	return 0;
 }
 
+string cesar(string pal){
+	int x=pal.length();
+	for(int i=0;i<x;i++){    
+		if (pal.at(i) !=' ' ) {
+                char y;
+                int x = pal.at(i);
+					
+                if (x == 97) {
+                    y = (char) (120);
+                } else if (x == 98) {
+                    y = (char) (121);
+                } else if (x == 99) {
+                    y = (char) (122);
+                } else if (x == 48) {
+                    y = (char) (55);
+                } else if (x == 49){
+  						  y = (char) (56);
+                } else if (x == 50) {
+                    y = (char) (57);
+                } else {
+                    y = (char) (x - 3);
+                }
+                pal[i]=y;
+            }else{
+					pal[i]=' ';
+				}
+			
+				
+	}	
+	
+   	
+	 return pal;
+}
 
 int abecedario(char h) {
         
@@ -286,7 +318,7 @@ string abcedariofrom(int x) {
 
 string* Vigenere(string cad, int clave){
 	string* retVal=new string[1];
-	
+	cout<<cad.length();	
 	string vig="";
    int pos;
 	int cont=1; 
